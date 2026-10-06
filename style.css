@@ -1,0 +1,791 @@
+/* ==============================
+   RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f2f2f2;
+}
+
+
+/* ==============================
+   CHECKBOX DO DARK MODE
+================================= */
+
+/* Esconde o checkbox original */
+#darkmode {
+    display: none;
+}
+
+
+/* ==============================
+   VARIÁVEIS DO SITE
+================================= */
+
+.site {
+
+    --fundo: #f2f2f2;
+    --fundo-secundario: #ffffff;
+    --texto: #111111;
+    --texto-fraco: #6d6d6d;
+    --borda: #d8d8d8;
+    --botao: #111111;
+    --botao-texto: #ffffff;
+
+    min-height: 100vh;
+
+    background: var(--fundo);
+
+    color: var(--texto);
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease;
+}
+
+
+/* ==============================
+   DARK MODE
+================================= */
+
+#darkmode:checked ~ .site {
+
+    --fundo: #090909;
+    --fundo-secundario: #121212;
+    --texto: #ffffff;
+    --texto-fraco: #999999;
+    --borda: #2d2d2d;
+    --botao: #ffffff;
+    --botao-texto: #000000;
+
+}
+
+
+/* ==============================
+   CABEÇALHO
+================================= */
+
+.header {
+
+    height: 80px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--borda);
+
+    transition: 0.4s;
+
+}
+
+
+.logo {
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+}
+
+
+.logo span {
+    color: #777777;
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 35px;
+
+}
+
+
+nav a {
+
+    text-decoration: none;
+
+    color: var(--texto-fraco);
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+nav a:hover {
+    color: var(--texto);
+}
+
+
+/* ==============================
+   BOTÃO DARK MODE
+================================= */
+
+.dark-button {
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 50%;
+
+    background: var(--fundo-secundario);
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.3s;
+
+}
+
+
+.dark-button:hover {
+
+    transform: rotate(15deg);
+
+}
+
+
+/* Estado normal */
+.sol {
+    display: none;
+}
+
+.lua {
+    display: block;
+}
+
+
+/* Quando estiver no dark mode */
+#darkmode:checked ~ .site .lua {
+    display: none;
+}
+
+#darkmode:checked ~ .site .sol {
+    display: block;
+}
+
+
+/* ==============================
+   HERO
+================================= */
+
+.hero {
+
+    min-height: 700px;
+
+    padding: 100px 7%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+}
+
+
+/* ==============================
+   TEXTO HERO
+================================= */
+
+.hero-text {
+
+    max-width: 600px;
+
+}
+
+
+.tag {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: var(--texto-fraco);
+
+    margin-bottom: 22px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(55px, 7vw, 95px);
+
+    line-height: 0.93;
+
+    letter-spacing: -5px;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--texto-fraco);
+
+}
+
+
+.descricao {
+
+    max-width: 480px;
+
+    margin: 35px 0;
+
+    color: var(--texto-fraco);
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+}
+
+
+/* ==============================
+   BOTÕES
+================================= */
+
+.botao {
+
+    display: inline-block;
+
+    padding: 17px 30px;
+
+    background: var(--botao);
+
+    color: var(--botao-texto);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s;
+
+}
+
+
+.botao:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* ==============================
+   CARRO PRINCIPAL
+================================= */
+
+.carro-principal {
+
+    padding: 25px;
+
+    background: var(--fundo-secundario);
+
+    border: 1px solid var(--borda);
+
+    transition: 0.4s;
+
+}
+
+
+.imagem-carro {
+
+    height: 350px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--fundo);
+
+    transition: 0.4s;
+
+}
+
+
+.imagem-carro span {
+
+    font-size: 180px;
+
+}
+
+
+.informacoes-carro {
+
+    padding-top: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 20px;
+
+}
+
+
+.categoria {
+
+    color: var(--texto-fraco);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.informacoes-carro h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.detalhes {
+
+    color: var(--texto-fraco);
+
+    font-size: 11px;
+
+}
+
+
+.informacoes-carro strong {
+
+    font-size: 22px;
+
+    white-space: nowrap;
+
+}
+
+
+/* ==============================
+   SEÇÃO CARROS
+================================= */
+
+.carros {
+
+    padding: 110px 7%;
+
+    border-top: 1px solid var(--borda);
+
+}
+
+
+.titulo-secao {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 50px;
+
+}
+
+
+.titulo-secao h2 {
+
+    font-size: clamp(42px, 5vw, 65px);
+
+    letter-spacing: -4px;
+
+}
+
+
+.estoque {
+
+    color: var(--texto-fraco);
+
+    font-size: 12px;
+
+}
+
+
+/* ==============================
+   GRID
+================================= */
+
+.grid-carros {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+/* ==============================
+   CARDS
+================================= */
+
+.card {
+
+    background: var(--fundo-secundario);
+
+    border: 1px solid var(--borda);
+
+    transition: 0.4s;
+
+}
+
+
+.card:hover {
+
+    transform: translateY(-8px);
+
+}
+
+
+.card-imagem {
+
+    height: 250px;
+
+    background: var(--fundo);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 120px;
+
+    transition: 0.4s;
+
+}
+
+
+.card-conteudo {
+
+    padding: 25px;
+
+}
+
+
+.card-conteudo h3 {
+
+    font-size: 24px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.descricao-card {
+
+    color: var(--texto-fraco);
+
+    line-height: 1.6;
+
+    font-size: 13px;
+
+}
+
+
+.card-final {
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--borda);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.card-final strong {
+
+    font-size: 18px;
+
+}
+
+
+.detalhes-link {
+
+    text-decoration: none;
+
+    color: var(--texto);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ==============================
+   SOBRE
+================================= */
+
+.sobre {
+
+    padding: 110px 7%;
+
+    border-top: 1px solid var(--borda);
+
+    display: grid;
+
+    grid-template-columns: 150px 1fr;
+
+    gap: 70px;
+
+}
+
+
+.numero {
+
+    font-size: 100px;
+
+    font-weight: 800;
+
+    color: var(--texto-fraco);
+
+    letter-spacing: -8px;
+
+}
+
+
+.sobre-texto {
+
+    max-width: 800px;
+
+}
+
+
+.sobre-texto h2 {
+
+    max-width: 750px;
+
+    font-size: clamp(45px, 6vw, 75px);
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.sobre-texto h2 span {
+
+    display: block;
+
+    color: var(--texto-fraco);
+
+}
+
+
+.sobre-texto > p:last-child {
+
+    max-width: 600px;
+
+    color: var(--texto-fraco);
+
+    line-height: 1.8;
+
+}
+
+
+/* ==============================
+   CONTATO
+================================= */
+
+.contato {
+
+    padding: 100px 7%;
+
+    border-top: 1px solid var(--borda);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 40px;
+
+}
+
+
+.contato h2 {
+
+    font-size: clamp(45px, 6vw, 75px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+}
+
+
+/* ==============================
+   FOOTER
+================================= */
+
+footer {
+
+    padding: 40px 7%;
+
+    border-top: 1px solid var(--borda);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: var(--texto-fraco);
+
+    font-size: 11px;
+
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 950px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 70px;
+
+    }
+
+    .grid-carros {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .hero {
+
+        padding: 60px 7%;
+
+    }
+
+    .hero h1 {
+
+        letter-spacing: -3px;
+
+    }
+
+    .grid-carros {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .titulo-secao {
+
+        flex-direction: column;
+
+        align-items: start;
+
+        gap: 20px;
+
+    }
+
+    .sobre {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+    }
+
+    .numero {
+
+        font-size: 70px;
+
+    }
+
+    .contato {
+
+        flex-direction: column;
+
+        align-items: start;
+
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+
+    }
+
+}
